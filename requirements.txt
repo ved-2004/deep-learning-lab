@@ -1,0 +1,5 @@
+numpy>=1.24
+matplotlib>=3.7
+jupyter>=1.0
+scikit-learn>=1.3    # only for toy datasets & metrics, NOT for the model
+pytest>=7.0
