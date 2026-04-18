@@ -1,6 +1,7 @@
 """
 Defining various MLP classes, which are neural networks with varying hidden layers.
 """
+import random
 
 class FCLayer:
     """
@@ -9,7 +10,7 @@ class FCLayer:
     def __init__(self, input_size, output_size):
         self.input_size = input_size
         self.output_size = output_size
-        self.weights = [[0.0 for _ in range(output_size)] for _ in range(input_size)]
+        self.weights = [[random.gauss(0, 0.1) for _ in range(output_size)] for _ in range(input_size)]
         self.biases = [0.0 for _ in range(output_size)]
         # grads, for backpropagation
         self.weight_grads = None
