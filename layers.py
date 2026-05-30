@@ -20,7 +20,7 @@ class FCLayer:
 
     def forward(self, inputs):
         """
-        Forward pass through the layer.
+        Forward pass through the layer. Matrix multiply inputs by weights, add biases, and return the output.
         """
         self.x = inputs
         output = [0.0 for _ in range(self.output_size)]
