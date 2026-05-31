@@ -46,3 +46,15 @@ class LeakyReLU:
 
     def backward(self, output_grad):
         return [grad if val > 0 else self.alpha * grad for grad, val in zip(output_grad, self.x)]
+    
+class GeLU:
+    def __init__(self):
+        pass
+
+    def forward(self, x):
+        self.x = x
+        return [0.5 * val * (1 + math.tanh(math.sqrt(2 / math.pi) * (val + 0.044715 * val ** 3))) for val in x]
+
+    def backward(self, output_grad):
+        return [grad * (0.5 * (1 + math.tanh(math.sqrt(2 / math.pi) * (val + 0.044715 * val ** 3))) + 0.5 * val * (1 - math.tanh(math.sqrt(2 / math.pi) * (val + 0.044715 * val ** 3)) ** 2) * (math.sqrt(2 / math.pi) * (1 + 3 * 0.044715 * val ** 2))) for grad, val in zip(output_grad, self.x)]
+    
