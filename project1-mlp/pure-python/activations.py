@@ -47,6 +47,7 @@ class LeakyReLU:
     def backward(self, output_grad):
         return [grad if val > 0 else self.alpha * grad for grad, val in zip(output_grad, self.x)]
     
+    
 class GeLU:
     def __init__(self):
         pass
